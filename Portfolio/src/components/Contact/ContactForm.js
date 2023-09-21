@@ -65,7 +65,7 @@ const ContactForm = () => {
                     <br />
                     <h4>Thanks for reaching out to me.</h4>
                     <br />
-                    <Link href="https://mail.google.com/">
+                    <Link href="https://mail.google.com/" target="_blank">
                       Check Inbox for my response
                     </Link>
                   </Card.Body>
