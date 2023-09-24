@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import './Contact.css'
 import image from "../../Assets/contact_form.jpg";
 import sent from "../../Assets/sent.jpg";
 import { message } from "antd";
@@ -52,11 +53,11 @@ const ContactForm = () => {
     <Container>
       <Container>
         <Row>
-          <Col md={6} style={{ textAlign: "left" }}>
+          <Col md={6} style={{ textAlign: "left" }} id="leftCol">
             <img src={image} width="80%" style={{ borderRadius: "10px" }} />
           </Col>
           <br />
-          <Col lg={6} style={{ paddingLeft: "9%" }}>
+          <Col lg={6} style={{ paddingLeft: "9%" }} id="rightCol">
             {success ? (
               <>
                 <Card>
