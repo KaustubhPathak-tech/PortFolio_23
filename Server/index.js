@@ -104,10 +104,10 @@ app.post("/sendMessage", async function posting(req, res) {
                 <p>Thank you again ! .</p>
             </div>
             <div class="social-icons">
-                <a class="social-icon" href="https://www.facebook.com/kaustubh.pathak.5477/"><i class="fa-brands fa-facebook"></i></a>
-                <a class="social-icon" href="https://twitter.com/Kaustub05796452"><i class="fa-brands fa-twitter"></i></a>
-                <a class="social-icon" href="https://www.linkedin.com/in/kaustubh-pathak-293116198/"><i class="fa-brands fa-linkedin"></i></a>
-                <a class="social-icon" href="https://www.instagram.com/__pathak__kaustubh_04_04/"><i class="fa-brands fa-instagram"></i></a>
+                <a class="social-icon" href="https://www.facebook.com/kaustubh.pathak.5477/"><img src="./Assets/facebook.svg" /></a>
+                <a class="social-icon" href="https://twitter.com/Kaustub05796452"><img src="./Assets/twitter.svg" /></a>
+                <a class="social-icon" href="https://www.linkedin.com/in/kaustubh-pathak-293116198/"><img src="./Assets/linkedin.svg" /></a>
+                <a class="social-icon" href="https://www.instagram.com/__pathak__kaustubh_04_04/"><img src="./Assets/instagram.svg" /></a>
             </div>
         </div>
     </body>
