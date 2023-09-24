@@ -525,8 +525,26 @@ button:focus {
 
 .submit_btn{
   margin: 2% 35% 5% 42% ;
-  width: fit-content;
+  min-width: 100px;
 }
+
+#rightCol{
+  padding-left: 9%;
+}
+@media (max-width: 1000px) {
+  .submit_btn{
+      margin: 5% 15%;
+  }
+  #leftCol {
+    display: none;
+  }
+
+  #rightCol{
+
+      padding-left: 0%;
+  }
+}
+
 .btn-primary {
   color: #fff !important;
   background-color: #623686 !important;

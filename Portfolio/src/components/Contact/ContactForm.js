@@ -5,7 +5,7 @@ import './Contact.css'
 import image from "../../Assets/contact_form.jpg";
 import sent from "../../Assets/sent.jpg";
 import { message } from "antd";
-import { TbBrandTelegram, TbFidgetSpinner } from "react-icons/tb";
+import { TbBrandTelegram} from "react-icons/tb";
 import { Form, Button, Card, Container, Row, Col } from "react-bootstrap";
 import Link from "antd/es/typography/Link";
 message.config({
@@ -40,8 +40,6 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    // setSuccess(true);
-    // Handle form submission, e.g., send data to a server or perform validation
     const response = await sendMessage(formData);
     setTimeout(() => {
       setIsLoading(false);
@@ -53,11 +51,11 @@ const ContactForm = () => {
     <Container>
       <Container>
         <Row>
-          <Col md={6} style={{ textAlign: "left" }} id="leftCol">
+          <Col md={6} style={{ textAlign: "center" }} id="leftCol">
             <img src={image} width="80%" style={{ borderRadius: "10px" }} />
           </Col>
           <br />
-          <Col lg={6} style={{ paddingLeft: "9%" }} id="rightCol">
+          <Col lg={6} style={{textAlign:"center" }} id="rightCol">
             {success ? (
               <>
                 <Card>
