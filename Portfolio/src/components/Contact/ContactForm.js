@@ -139,7 +139,7 @@ const ContactForm = () => {
                         {isLoading ? (
                           <>
                             <div
-                              class="spinner-border text-light"
+                              class="spinner-border spinner-border-sm text-light"
                               role="status"
                             >
                               
