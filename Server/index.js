@@ -57,9 +57,11 @@ app.post("/sendMessage", async function posting(req, res) {
     <head>
         <meta charset="utf-8">
         <title>Thank You for Your Submission</title>
+        
         <style>
             body {
-                background-color: #f4f4f4;
+                border:1px solid grey;
+                background-color: #eaf2c7;
                 font-family: Arial, sans-serif;
             }
     
@@ -67,7 +69,7 @@ app.post("/sendMessage", async function posting(req, res) {
                 max-width: 600px;
                 margin: 0 auto;
                 padding: 20px;
-                background-color: #ffffff;
+                background-color: #eaf2c7;
                 border-radius: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             }
@@ -104,17 +106,15 @@ app.post("/sendMessage", async function posting(req, res) {
                 <p>Thank you again ! .</p>
             </div>
             <div class="social-icons">
-                <a class="social-icon" href="https://www.facebook.com/kaustubh.pathak.5477/"><img src="./Assets/facebook.svg" /></a>
-                <a class="social-icon" href="https://twitter.com/Kaustub05796452"><img src="./Assets/twitter.svg" /></a>
-                <a class="social-icon" href="https://www.linkedin.com/in/kaustubh-pathak-293116198/"><img src="./Assets/linkedin.svg" /></a>
-                <a class="social-icon" href="https://www.instagram.com/__pathak__kaustubh_04_04/"><img src="./Assets/instagram.svg" /></a>
+                <a class="social-icon" href="https://www.facebook.com/kaustubh.pathak.5477/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1024px-2021_Facebook_icon.svg.png" width="25px"/></a>&nbsp;&nbsp;&nbsp;
+                <a class="social-icon" href="https://twitter.com/Kaustub05796452"><img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" width="25px" /></a>&nbsp;&nbsp;&nbsp;
+                <a class="social-icon" href="https://www.linkedin.com/in/kaustubh-pathak-293116198/"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="25px" /></a>&nbsp;&nbsp;&nbsp;
+                <a class="social-icon" href="https://www.instagram.com/__pathak__kaustubh_04_04/"><img src="https://cdn-icons-png.flaticon.com/512/3621/3621435.png" width="25px"/></a>
             </div>
         </div>
+        
     </body>
-    <script src="https://kit.fontawesome.com/d5be5e0fb3.js" crossorigin="anonymous"></script>
     </html>
-    
-
     `;
     const mailoption1 = {
       from: "<kaustubhpathak9@gmail.com>",
