@@ -14,7 +14,7 @@ message.config({
     rtl: true,
     prefixCls: 'my-message',
   });
-const API = axios.create({ baseURL: "http://localhost:7000" });
+const API = axios.create({ baseURL: "https://portfolioserver-beryl.vercel.app" });
 const ContactForm = () => {
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
