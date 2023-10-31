@@ -135,8 +135,8 @@ app.post("/sendEnquiry", async function posting(req, res) {
 
     await transporter.sendMail(mailoption1);
     await transporter.sendMail(recieved);
-
-    res.status(200).json("Message sent successfully !");
+    res.redirect("http://localhost:3000/enquirySuccess");
+    res.status(200).end();
   } catch (error) {
     res.status(500).send("Enter valid Email");
   }
