@@ -68,10 +68,12 @@ app.post("/sendEnquiry", async function posting(req, res) {
             }
     
             .container {
-                width: 100%;
+                  height: 60vh;
+                width: 90%;
                 margin: 0 auto;
                 padding: 20px;
-                background-color: #eaf2c7;
+                background-color: #78afc4;
+                color: white;
                 border-radius: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             }
@@ -84,8 +86,10 @@ app.post("/sendEnquiry", async function posting(req, res) {
             }
     
             .content {
+              text-align: center;
                 font-size: 16px;
                 line-height: 1.5;
+                margin-bottom: 150px;
             }
     
             .social-icons {
@@ -108,10 +112,10 @@ app.post("/sendEnquiry", async function posting(req, res) {
                 <p>Thank you again ! .</p>
             </div>
             <div class="social-icons">
-                <a class="social-icon" href="https://www.facebook.com/kaustubh.pathak.5477/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1024px-2021_Facebook_icon.svg.png" width="25px"/></a>&nbsp;&nbsp;&nbsp;
-                <a class="social-icon" href="https://twitter.com/Kaustub05796452"><img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" width="25px" /></a>&nbsp;&nbsp;&nbsp;
-                <a class="social-icon" href="https://www.linkedin.com/in/kaustubh-pathak-293116198/"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="25px" /></a>&nbsp;&nbsp;&nbsp;
-                <a class="social-icon" href="https://www.instagram.com/__pathak__kaustubh_04_04/"><img src="https://cdn-icons-png.flaticon.com/512/3621/3621435.png" width="25px"/></a>
+                <a class="social-icon" href=""><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1024px-2021_Facebook_icon.svg.png" width="25px"/></a>&nbsp;&nbsp;&nbsp;
+                <a class="social-icon" href=""><img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" width="25px" /></a>&nbsp;&nbsp;&nbsp;
+                <a class="social-icon" href=""><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="25px" /></a>&nbsp;&nbsp;&nbsp;
+                <a class="social-icon" href=""><img src="https://cdn-icons-png.flaticon.com/512/3621/3621435.png" width="25px"/></a>
             </div>
         </div>
         
@@ -119,23 +123,24 @@ app.post("/sendEnquiry", async function posting(req, res) {
     </html>
     `;
     const mailoption1 = {
-      from: "<kaustubhpathak9@gmail.com>",
+      from: "<febshinef@gmail.com>",
       to: email,
       subject: "Regarding Your Enquiry with Feb & Shine ",
-      text: "Hello from Feb & Shine",
+      text: "Hello from Feb & Shine LLP. ",
       html: htmlEmail,
     };
     const recieved = {
       from: email,
-      to: "<kaustubhpathak9@gmail.com>",
+      to: "<kaustubhpathak9@gmail.com>,<kaustubhpathak64@yahoo.com>,<febshinef@gmail.com>",
       subject: "New Enquiry Registered",
       text: `Hello from ${name} `,
-      html: `<p>Namste Kaustubh, This is ${name} </p> <br> phone: <p> ${phone} </p> <br> address: <p> ${address} </p> <br> message: <p> ${message} </p>`,
+      html: `<p>Namaste Team @ Feb & Shine, This is ${name} </p><br> <p>
+      My Email id is : ${email} </p> <br> phone: <p> ${phone} </p> <br> address: <p> ${address} </p> <br> message: <p> ${message} </p>`,
     };
 
     await transporter.sendMail(mailoption1);
     await transporter.sendMail(recieved);
-    res.redirect("http://localhost:3000/enquirySuccess");
+    res.redirect("https://febandshine.vercel.app/enquirySuccess");
     res.status(200).end();
   } catch (error) {
     res.status(500).send("Enter valid Email");
