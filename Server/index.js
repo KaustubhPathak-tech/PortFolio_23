@@ -2,9 +2,11 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const cors = require("cors");
+const UserOTPVerification = require("./model/OTP.js");
 const nodemailer = require("nodemailer");
+const bcrypt = require("bcryptjs");
 const { google } = require("googleapis");
-
+const mongoose = require("mongoose");
 dotenv.config();
 const bodyParser = require("body-parser");
 // const request = require("request");
@@ -25,7 +27,6 @@ oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 const accessToken = oAuth2Client.getAccessToken();
 const transporter = nodemailer.createTransport({
   service: "gmail",
-
   auth: {
     type: "OAuth2",
     user: "kaustubhpathak9@gmail.com",
@@ -44,6 +45,39 @@ app.get("/", function (req, res) {
   res.send("<h4>Hurray! Server is Running on PORT 80 </h4>");
 });
 
+app.post("/sendOTP", async (req, res) => {
+  const { email } = req.body;
+  try {
+    const otp = `${Math.floor(1000 + Math.random() * 9000)}`;
+
+    //mailoptions
+    const mailoptions = {
+      from: "<kaustubhpathak9@gmail.com>",
+      to: email,
+      subject: "Verify Your Account",
+      text: "Hello from Kaustubh",
+      html: `<p>Enter <b>${otp}</b> in the website to verify your email address.</p><p>This code <b>expires in 1 hour</b>.</p><br/><p><a href="https://medhos.vercel.app/" style="text-decoration:'none'">&copy; MedHos.com </a></p>`,
+    };
+
+    const Salt = 12;
+    const hashedOTP = await bcrypt.hash(`${otp}`, Salt);
+    await transporter.sendMail(mailoptions);
+    const newOTPVerification = await UserOTPVerification.create({
+      userEmail: email,
+      otp: hashedOTP,
+      createdAt: Date.now(),
+      expireAt: Date.now() + 3600000,
+    });
+    await newOTPVerification.save();
+    res.json({
+      status: "PENDING",
+      message: "Verification otp email sent",
+      data: { email },
+    });
+  } catch (error) {
+    res.status(500).send("Enter valid Email");
+  }
+});
 
 app.post("/sendEnquiry", async function posting(req, res) {
   const name = req.body.name;
@@ -243,7 +277,17 @@ app.post("/sendMessage", async function posting(req, res) {
 });
 
 const PORT = 7005 || process.env.PORT;
-
-app.listen(PORT, function (req, res) {
-  console.log(`Server is Running on PORT : ${PORT}`);
-});
+mongoose
+  .connect(process.env.CONNECTION_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() =>
+    app.listen(PORT, () => {
+      console.log(`SMTP server is running on port ${PORT}`);
+    })
+  )
+  .catch((err) => {
+    console.log(err.message);
+    console.log("         Database URL       ");
+  });
