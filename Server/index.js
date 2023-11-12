@@ -78,6 +78,39 @@ app.post("/sendOTP", async (req, res) => {
     res.status(500).send("Enter valid Email");
   }
 });
+app.post("/sendOTP@OtivaEducart", async (req, res) => {
+  const { email } = req.body;
+  try {
+    const otp = `${Math.floor(1000 + Math.random() * 9000)}`;
+
+    //mailoptions
+    const mailoptions = {
+      from: "<kaustubhpathak9@gmail.com>",
+      to: email,
+      subject: "Verify Your Account",
+      text: "Hello from Kaustubh",
+      html: `<p>Enter <b>${otp}</b> in the website to verify your email address.</p><p>This code <b>expires in 1 hour</b>.</p><br/><p><a href="https://stack-over-flow-clone-2023.vercel.app/" style="text-decoration:"none">&copy; Otiva Educart</a></p>`,
+    };
+
+    const Salt = 12;
+    const hashedOTP = await bcrypt.hash(`${otp}`, Salt);
+    await transporter.sendMail(mailoptions);
+    const newOTPVerification = await UserOTPVerification.create({
+      userEmail: email,
+      otp: hashedOTP,
+      createdAt: Date.now(),
+      expireAt: Date.now() + 3600000,
+    });
+    await newOTPVerification.save();
+    res.json({
+      status: "PENDING",
+      message: "Verification otp email sent",
+      data: { email },
+    });
+  } catch (error) {
+    res.status(500).send("Enter valid Email");
+  }
+});
 
 app.post("/sendEnquiry", async function posting(req, res) {
   const name = req.body.name;
