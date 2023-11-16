@@ -5,6 +5,7 @@ import ProjectCard from "./ProjectCards";
 import medhos from "../../Assets/Projects/medhos.png";
 import stack from "../../Assets/Projects/stackflow.png";
 import e_commerce from "../../Assets/Projects/e-commerce.png";
+import febshine from "../../Assets/Projects/febshine.png"
 
 import Particle from "../Particle";
 import leaf from "../../Assets/Projects/leaf.png";
@@ -41,10 +42,10 @@ function Projects() {
             <ProjectCard
               imgPath={stack}
               isBlog={false}
-              title="Stack OverFlow 2.O "
+              title="Otiva EduCart"
               description="It is a platform to ask questions related to programming and other technical stuffs concerned with IT. User's can subscribe to various plans paying bills accordingly and ask their doubts."
-              ghLink="https://github.com/KaustubhPathak-tech/Stack-over-flow-frontend"
-              demoLink="https://stack-over-flow-clone-2023.vercel.app/"
+              ghLink="https://github.com/KaustubhPathak-tech/Otiva-Educart-Front-End"
+              demoLink="https://otivaeducart.vercel.app/"
             />
           </Col>
 
@@ -52,12 +53,26 @@ function Projects() {
             <ProjectCard
               imgPath={e_commerce}
               isBlog={false}
-              title="E-commerce"
+              title="ZetaCart"
               description="It is MERN stack implementation of e-commerce platform to expand B2C Business of people."
-              ghLink="https://github.com/KaustubhPathak-tech/E-commerce"
-              demoLink="https://otivaindustries.net/"
+              ghLink="https://github.com/KaustubhPathak-tech/ZetaCart"
+              demoLink="https://zetacart.vercel.app/"
             />
           </Col>
+        </Row>
+        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={febshine}
+              isBlog={false}
+              title="Feb & Shine"
+              description="It's the official website of Feb & Shine , Vasai, India. The comapany manufactures and supplies various types of pharmaceutical products."
+              ghLink="https://github.com/KaustubhPathak-tech/Feb-and-Shine"
+              demoLink="https://febandshine.vercel.app/"
+            />
+          </Col>
+
+          
         </Row>
       </Container>
     </Container>
