@@ -76,7 +76,7 @@ function Projects() {
             <ProjectCard
               imgPath={shyamtrust}
               isBlog={false}
-              title="Feb & Shine"
+              title="Shyam Trust"
               description="It's the official website of Shyam Trust for handicapped, Bhiwadi, India. The Trust provides resources to handicapped, free education to children. It also provides free medical services to the needy."
               ghLink="https://github.com/KaustubhPathak-tech/Shyam_Trust"
               demoLink="https://shyamtrust.vercel.app/"
