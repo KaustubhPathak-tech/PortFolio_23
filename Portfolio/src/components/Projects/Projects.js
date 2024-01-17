@@ -6,6 +6,7 @@ import medhos from "../../Assets/Projects/medhos.png";
 import stack from "../../Assets/Projects/stackflow.png";
 import e_commerce from "../../Assets/Projects/e-commerce.png";
 import febshine from "../../Assets/Projects/febshine.png"
+import shyamtrust from "../../Assets/Projects/Shyam Trust.png"
 
 import Particle from "../Particle";
 import leaf from "../../Assets/Projects/leaf.png";
@@ -69,6 +70,16 @@ function Projects() {
               description="It's the official website of Feb & Shine , Vasai, India. The comapany manufactures and supplies various types of pharmaceutical products."
               ghLink="https://github.com/KaustubhPathak-tech/Feb-and-Shine"
               demoLink="https://febandshine.vercel.app/"
+            />
+          </Col>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={shyamtrust}
+              isBlog={false}
+              title="Feb & Shine"
+              description="It's the official website of Shyam Trust for handicapped, Bhiwadi, India. The Trust provides resources to handicapped, free education to children. It also provides free medical services to the needy."
+              ghLink="https://github.com/KaustubhPathak-tech/Shyam_Trust"
+              demoLink="https://shyamtrust.vercel.app/"
             />
           </Col>
 
