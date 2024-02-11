@@ -308,6 +308,99 @@ app.post("/sendMessage", async function posting(req, res) {
     res.status(500).send("Enter valid Email");
   }
 });
+app.post("/sendMessage@SharmaEle", async function posting(req, res) {
+  console.log(req.body);
+  const fname = req.body.name;
+  const e_mail = req.body.email;
+  const phone = req.body.phone;
+  const sub = req.body.msg;
+
+  try {
+    //mailoptions
+    const htmlEmail = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Thank You for Your Submission</title>
+        
+        <style>
+            body {
+                border:1px solid grey;
+                background-color: #eaf2c7;
+                font-family: Arial, sans-serif;
+            }
+    
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #eaf2c7;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+    
+            .header {
+                text-align: center;
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+    
+            .content {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+    
+            .social-icons {
+                margin-top: 20px;
+                text-align: center;
+            }
+    
+            .social-icon {
+                font-size: 24px;
+                margin: 0 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">Thank You for Contacting Us </div>
+            <div class="content">
+                <p>Your Message has been received. We appreciate your interest and will get back to you as soon as possible.</p>
+                
+            </div>
+        </div>
+        
+    </body>
+    </html>
+    `;
+    const mailoption1 = {
+      from: "<kaustubhpathak9@gmail.com>",
+      to: e_mail,
+      subject: "Acknowledgement from Sharma Electricals",
+      text: "Greetings from Sharma Electricals",
+      html: htmlEmail,
+    };
+    const recieved = {
+      from: e_mail,
+      to: "<kaustubhpathak9@gmail.com>",
+      subject: "New Customer Contacted",
+      text: `Hello from ${fname} `,
+      html: `<p>Hello, Sharma Electronics Bhiwadi, This is ${fname} </p> <br> message: <p> ${sub} </p><br> phone: <p> ${phone} </p> `,
+    };
+    if (!fname || !e_mail || !phone || !sub) {
+      res.status(400).json("Please Enter all the fields");
+    } else {
+      await transporter.sendMail(mailoption1);
+      await transporter.sendMail(recieved);
+
+      res.status(200).json("Message sent successfully !");
+    }
+  } catch (error) {
+    res.status(500).send("Enter valid Email");
+  }
+});
 
 const PORT = 7005 || process.env.PORT;
 mongoose
