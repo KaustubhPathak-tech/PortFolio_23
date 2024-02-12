@@ -384,7 +384,7 @@ app.post("/sendMessage@SharmaEle", async function posting(req, res) {
     };
     const recieved = {
       from: e_mail,
-      to: "<kaustubhpathak9@gmail.com>",
+      to: "<kaustubhpathak9@gmail.com>,<sharmapravesh7894@gmail.com>",
       subject: "New Customer Contacted",
       text: `Hello from ${fname} `,
       html: `<p>Hello, Sharma Electronics Bhiwadi, This is ${fname} </p> <br> message: <p> ${sub} </p><br> phone: <p> ${phone} </p> `,
