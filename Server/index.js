@@ -9,31 +9,18 @@ const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
 dotenv.config();
 const bodyParser = require("body-parser");
-// const request = require("request");
 
 const app = express();
 
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const REDIRECT_URI = "https://developers.google.com/oauthplayground";
-const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
-
-const oAuth2Client = new google.auth.OAuth2(
-  CLIENT_ID,
-  CLIENT_SECRET,
-  REDIRECT_URI
-);
-oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
-const accessToken = oAuth2Client.getAccessToken();
 const transporter = nodemailer.createTransport({
   service: "gmail",
+  type: "OAuth2",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
   auth: {
-    type: "OAuth2",
     user: "kaustubhpathak9@gmail.com",
-    clientId: CLIENT_ID,
-    clientSecret: CLIENT_SECRET,
-    refreshToken: REFRESH_TOKEN,
-    accessToken: accessToken,
+    pass: process.env.pass,
   },
 });
 
@@ -308,7 +295,6 @@ app.post("/sendMessage", async function posting(req, res) {
     res.status(500).send("Enter valid Email");
   }
 });
-
 
 app.post("/sendMessage@SharmaEle", async function posting(req, res) {
   console.log(req.body);
