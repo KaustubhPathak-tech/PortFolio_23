@@ -51,10 +51,10 @@ app.post("/sendOTP", async (req, res) => {
     transporter
       .sendMail(mailoptions)
       .then(() => {
-        console.log("-- email sent successfully!");
+        console.log("--- email sent successfully!");
       })
       .catch((error) => {
-        console.log("-- error ocured while sending email", error);
+        console.error("-- error ocured while sending email", error);
       });
     const newOTPVerification = await UserOTPVerification.create({
       userEmail: email,
@@ -91,10 +91,10 @@ app.post("/sendOTP@OtivaEducart", async (req, res) => {
     transporter
       .sendMail(mailoptions)
       .then(() => {
-        console.log("-- email sent successfully!");
+        console.log("--- email sent successfully!");
       })
       .catch((error) => {
-        console.log("-- error ocured while sending email", error);
+        console.error("-- error ocured while sending email", error);
       });
     const newOTPVerification = await UserOTPVerification.create({
       userEmail: email,
@@ -212,15 +212,15 @@ app.post("/sendEnquiry", async function posting(req, res) {
         console.log("-- email sent successfully!");
       })
       .catch((error) => {
-        console.log("-- error ocured while sending email", error);
+        console.error("-- error ocured while sending email", error);
       });
     transporter
       .sendMail(recieved)
       .then(() => {
-        console.log("-- email sent successfully!");
+        console.log("--- email sent successfully!");
       })
       .catch((error) => {
-        console.log("-- error ocured while sending email", error);
+        console.error("-- error ocured while sending email", error);
       });
     res.redirect("https://febandshine.vercel.app/enquirySuccess");
     res.status(200).end();
@@ -321,15 +321,15 @@ app.post("/sendMessage", async function posting(req, res) {
         console.log("-- email sent successfully!");
       })
       .catch((error) => {
-        console.log("-- error ocured while sending email", error);
+        console.error("-- error ocured while sending email", error);
       });
     transporter
       .sendMail(recieved)
       .then(() => {
-        console.log("-- email sent successfully!");
+        console.log("--- email sent successfully!");
       })
       .catch((error) => {
-        console.log("-- error ocured while sending email", error);
+        console.error("-- error ocured while sending email", error);
       });
 
     res.status(200).json("Message sent successfully !");
@@ -428,7 +428,7 @@ app.post("/sendMessage@SharmaEle", async function posting(req, res) {
           console.log("-- email sent successfully!");
         })
         .catch((error) => {
-          console.log("-- error ocured while sending email", error);
+          console.error("-- error ocured while sending email", error);
         });
       transporter
         .sendMail(recieved)
@@ -436,7 +436,7 @@ app.post("/sendMessage@SharmaEle", async function posting(req, res) {
           console.log("-- email sent successfully!");
         })
         .catch((error) => {
-          console.log("-- error ocured while sending email", error);
+          console.error("-- error ocured while sending email", error);
         });
 
       res.status(200).json("Message sent successfully !");
@@ -535,7 +535,7 @@ app.post("/sendEnquiry@JMD", async function posting(req, res) {
           console.log("-- email sent successfully!");
         })
         .catch((error) => {
-          console.log("-- error ocured while sending email", error);
+          console.error("-- error ocured while sending email", error);
         });
       transporter
         .sendMail(recieved)
@@ -543,7 +543,7 @@ app.post("/sendEnquiry@JMD", async function posting(req, res) {
           console.log("-- email sent successfully!");
         })
         .catch((error) => {
-          console.log("-- error ocured while sending email", error);
+          console.error("-- error ocured while sending email", error);
         });
 
       res.status(200).json("Message sent successfully !");
