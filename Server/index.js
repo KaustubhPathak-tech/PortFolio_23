@@ -48,7 +48,14 @@ app.post("/sendOTP", async (req, res) => {
 
     const Salt = 12;
     const hashedOTP = await bcrypt.hash(`${otp}`, Salt);
-    await transporter.sendMail(mailoptions);
+    transporter
+      .sendMail(mailoptions)
+      .then(() => {
+        console.log("-- email sent successfully!");
+      })
+      .catch((error) => {
+        console.log("-- error ocured while sending email", error);
+      });
     const newOTPVerification = await UserOTPVerification.create({
       userEmail: email,
       otp: hashedOTP,
@@ -81,7 +88,14 @@ app.post("/sendOTP@OtivaEducart", async (req, res) => {
 
     const Salt = 12;
     const hashedOTP = await bcrypt.hash(`${otp}`, Salt);
-    await transporter.sendMail(mailoptions);
+    transporter
+      .sendMail(mailoptions)
+      .then(() => {
+        console.log("-- email sent successfully!");
+      })
+      .catch((error) => {
+        console.log("-- error ocured while sending email", error);
+      });
     const newOTPVerification = await UserOTPVerification.create({
       userEmail: email,
       otp: hashedOTP,
@@ -192,8 +206,22 @@ app.post("/sendEnquiry", async function posting(req, res) {
       My Email id is : ${email} </p> <br> phone: <p> ${phone} </p> <br> address: <p> ${address} </p> <br> message: <p> ${message} </p>`,
     };
 
-    await transporter.sendMail(mailoption1);
-    await transporter.sendMail(recieved);
+    transporter
+      .sendMail(mailoption1)
+      .then(() => {
+        console.log("-- email sent successfully!");
+      })
+      .catch((error) => {
+        console.log("-- error ocured while sending email", error);
+      });
+    transporter
+      .sendMail(recieved)
+      .then(() => {
+        console.log("-- email sent successfully!");
+      })
+      .catch((error) => {
+        console.log("-- error ocured while sending email", error);
+      });
     res.redirect("https://febandshine.vercel.app/enquirySuccess");
     res.status(200).end();
   } catch (error) {
@@ -287,8 +315,22 @@ app.post("/sendMessage", async function posting(req, res) {
       text: `Hello from ${fname} `,
       html: `<p>Namste Kaustubh, This is ${fname} </p> <br> message: <p> ${sub} </p> `,
     };
-    await transporter.sendMail(mailoption1);
-    await transporter.sendMail(recieved);
+    transporter
+      .sendMail(mailoption1)
+      .then(() => {
+        console.log("-- email sent successfully!");
+      })
+      .catch((error) => {
+        console.log("-- error ocured while sending email", error);
+      });
+    transporter
+      .sendMail(recieved)
+      .then(() => {
+        console.log("-- email sent successfully!");
+      })
+      .catch((error) => {
+        console.log("-- error ocured while sending email", error);
+      });
 
     res.status(200).json("Message sent successfully !");
   } catch (error) {
@@ -380,8 +422,22 @@ app.post("/sendMessage@SharmaEle", async function posting(req, res) {
     if (!fname || !e_mail || !phone || !sub) {
       res.status(400).json("Please Enter all the fields");
     } else {
-      await transporter.sendMail(mailoption1);
-      await transporter.sendMail(recieved);
+      transporter
+        .sendMail(mailoption1)
+        .then(() => {
+          console.log("-- email sent successfully!");
+        })
+        .catch((error) => {
+          console.log("-- error ocured while sending email", error);
+        });
+      transporter
+        .sendMail(recieved)
+        .then(() => {
+          console.log("-- email sent successfully!");
+        })
+        .catch((error) => {
+          console.log("-- error ocured while sending email", error);
+        });
 
       res.status(200).json("Message sent successfully !");
     }
@@ -473,8 +529,22 @@ app.post("/sendEnquiry@JMD", async function posting(req, res) {
     if (!fname || !e_mail || !phone || !sub) {
       res.status(400).json("Please Enter all the fields");
     } else {
-      await transporter.sendMail(mailoption1);
-      await transporter.sendMail(recieved);
+      transporter
+        .sendMail(mailoption1)
+        .then(() => {
+          console.log("-- email sent successfully!");
+        })
+        .catch((error) => {
+          console.log("-- error ocured while sending email", error);
+        });
+      transporter
+        .sendMail(recieved)
+        .then(() => {
+          console.log("-- email sent successfully!");
+        })
+        .catch((error) => {
+          console.log("-- error ocured while sending email", error);
+        });
 
       res.status(200).json("Message sent successfully !");
     }
