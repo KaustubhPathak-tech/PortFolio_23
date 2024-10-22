@@ -199,7 +199,7 @@ app.post("/sendEnquiry", async function posting(req, res) {
     };
     const recieved = {
       from: email,
-      to: "<kaustubhpathak9@gmail.com>,<kaustubhpathak64@yahoo.com>",  //<febshinef@gmail.com>
+      to: "<kaustubhpathak9@gmail.com>,<febshinef@gmail.com>", 
       subject: "New Enquiry Registered",
       text: `Hello from ${name} `,
       html: `<p>Namaste Team @ Feb & Shine, This is ${name} </p><br> <p>
