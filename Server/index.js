@@ -131,30 +131,30 @@ app.post("/sendEnquiry", async function posting(req, res) {
         <style>
             body {
                 border:1px solid grey;
-                background-color: #eaf2c7;
+                background-color: #cfcfcf;
                 font-family: Arial, sans-serif;
             }
     
             .container {
-                  height: 60vh;
-                width: 90%;
+                height: 60vh;
+                width: 95%;
                 margin: 0 auto;
                 padding: 20px;
-                background-color: #78afc4;
-                color: white;
+                background-color: #cfcfcf;
+                color: black;
                 border-radius: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             }
     
             .header {
-                text-align: center;
+                text-align: left;
                 font-size: 24px;
                 font-weight: bold;
                 margin-bottom: 20px;
             }
     
             .content {
-              text-align: center;
+              text-align: left;
                 font-size: 16px;
                 line-height: 1.5;
                 margin-bottom: 150px;
@@ -162,7 +162,7 @@ app.post("/sendEnquiry", async function posting(req, res) {
     
             .social-icons {
                 margin-top: 20px;
-                text-align: center;
+                text-align: left;
             }
     
             .social-icon {
@@ -173,7 +173,7 @@ app.post("/sendEnquiry", async function posting(req, res) {
     </head>
     <body>
         <div class="container">
-            <div class="header">Thanks for Reaching out to us </div>
+            <div class="header"> Dear ${name}, Thanks for Reaching out to us </div>
             <div class="content">
                 <p>Your Message has been received. We acknowledge your Enquiry and will get back to you as soon as possible.</p>
                 <p>If you have any questions , please feel free to contact Us.</p>
@@ -199,7 +199,7 @@ app.post("/sendEnquiry", async function posting(req, res) {
     };
     const recieved = {
       from: email,
-      to: "<kaustubhpathak9@gmail.com>,<kaustubhpathak64@yahoo.com>,<febshinef@gmail.com>",
+      to: "<kaustubhpathak9@gmail.com>,<kaustubhpathak64@yahoo.com>",  //<febshinef@gmail.com>
       subject: "New Enquiry Registered",
       text: `Hello from ${name} `,
       html: `<p>Namaste Team @ Feb & Shine, This is ${name} </p><br> <p>
