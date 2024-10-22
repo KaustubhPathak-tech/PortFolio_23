@@ -194,7 +194,7 @@ app.post("/sendEnquiry", async function posting(req, res) {
       from: "<febshinef@gmail.com>",
       to: email,
       subject: "Regarding Your Enquiry with Feb & Shine ",
-      text: "Hello from Feb & Shine LLP. ",
+      text: "Hello from Feb & Shine ",
       html: htmlEmail,
     };
     const recieved = {
